@@ -11,7 +11,12 @@
 
 <body>
 <header>
+
+
 <nav>
+<a href="<?php echo home_url(); ?>">  
+<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo <?php echo bloginfo('name'); ?>">
+</a>
 <?php
                     wp_nav_menu(array(
                         'theme_location' => 'menu_principal',

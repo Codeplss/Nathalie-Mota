@@ -1,0 +1,58 @@
+html { margin: auto; } /* Centre le contenu horizontalement */
+img { max-width: 100%; object-fit: contain; } /* Assure que les images s'adaptent à leur conteneur */
+
+footer { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-top: 1px solid #000; /* Bordure supérieure du footer */
+}
+
+footer a { 
+    font-size: 0.8333vw; /* Taille de police pour les liens dans le footer */
+}
+
+#menu-footer, #menu-header { 
+    display: flex; 
+    gap: 20px; /* Écart entre les éléments du menu */
+}
+
+a { 
+    text-decoration: none; 
+    color: black; /* Style des liens */
+}
+
+ul { 
+    list-style-type: none; 
+    padding: 0; /* Liste sans style et sans padding */
+}
+
+li { 
+    display: flex; 
+    align-items: center; /* Flexbox pour les éléments de liste */
+}
+
+header { 
+    position: sticky; 
+    top: 0; 
+    height: 80px; /* Hauteur du header */
+    -webkit-box-shadow: 0px 11px 12px -7px rgba(126, 126, 126, 0.226); 
+    box-shadow: 0px 11px 12px -7px rgba(126, 126, 126, 0.226); /* Ombre du header */
+}
+
+header a { 
+    font-size: 0.8333vw; /* Taille de police pour les liens dans le header */
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-content: center; 
+    margin-right: 140px; /* Marge à droite pour le nav */
+}
+
+nav img { 
+    width: 216px; /* Largeur des images dans le nav */
+    margin-left: 140px; /* Marge à gauche pour les images */
+    margin-top: 20px; /* Marge en haut pour les images */
+}
