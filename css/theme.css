@@ -1,20 +1,39 @@
+/*
+Theme Name: Photographe
+Theme URI: 
+Author: Tyberghien Andrew
+Author URI: 
+Description: Thème pour le site de Nathalie Mota
+Version: 1.0
+Tags: nathalie mota, photographie
+Text Domain: photographe
+*/
+
 html { margin: auto; } /* Centre le contenu horizontalement */
 img { max-width: 100%; object-fit: contain; } /* Assure que les images s'adaptent à leur conteneur */
 
 footer { 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    border-top: 1px solid #000; /* Bordure supérieure du footer */
+    display: flex; /* Utilise Flexbox pour un agencement horizontal des éléments dans le footer */
+    justify-content: center; /* Centre les éléments horizontalement dans le footer */
+    align-items: center; /* Centre les éléments verticalement dans le footer */
+    border-top: 1px solid #000; /* Ajoute une bordure supérieure noire pour séparer le footer du contenu au-dessus */
 }
 
 footer a { 
-    font-size: 0.8333vw; /* Taille de police pour les liens dans le footer */
+    font-family: Space Mono; /* Définit la police de caractères pour les liens dans le footer */
+    font-size: 16px; /* Définit la taille de la police pour les liens */
+    font-weight: 400; /* Définit le poids de la police pour les liens */
 }
 
 #menu-footer, #menu-header { 
     display: flex; 
     gap: 20px; /* Écart entre les éléments du menu */
+}
+
+.header-menu {
+    margin-right: 140px; /* Marge à droite pour le nav */
+    margin-top: 20px;
+
 }
 
 a { 
@@ -33,26 +52,994 @@ li {
 }
 
 header { 
-    position: sticky; 
-    top: 0; 
+     
     height: 80px; /* Hauteur du header */
-    -webkit-box-shadow: 0px 11px 12px -7px rgba(126, 126, 126, 0.226); 
-    box-shadow: 0px 11px 12px -7px rgba(126, 126, 126, 0.226); /* Ombre du header */
+    box-shadow: 0 1px 20px 1px rgba(0, 0, 0, 0.05);
 }
 
 header a { 
-    font-size: 0.8333vw; /* Taille de police pour les liens dans le header */
+    font-family: Space Mono;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+.hero-title {
+    font-family: "SpaceMono", monospace; /* Définit la police de caractères pour le titre, utilisant une police monospace */
+    font-size: 96px; /* Définit la taille de la police pour le titre */
+    font-style: italic; /* Applique un style italique au texte du titre */
+    font-weight: 700; /* Définit le poids de la police pour le titre (gras) */
+    line-height: normal; /* Définit la hauteur de ligne à la valeur normale */
+    color: transparent; /* Rend la couleur du texte transparente */
+    -webkit-text-stroke: 2px rgb(255, 255, 255); /* Applique un contour blanc de 2 pixels au texte (pour les navigateurs WebKit) */
+    text-transform: uppercase; /* Transforme le texte en majuscules */
+    transition: font-size 0.2s; /* Ajoute une transition de 0.2 secondes pour les changements de taille de police */
+    text-align: center; /* Centre le texte horizontalement */
+    padding-top: 250px; /* Ajoute un padding de 250 pixels en haut du titre */
 }
 
 nav { 
     display: flex; 
     justify-content: space-between; 
     align-content: center; 
-    margin-right: 140px; /* Marge à droite pour le nav */
+    
 }
 
 nav img { 
     width: 216px; /* Largeur des images dans le nav */
     margin-left: 140px; /* Marge à gauche pour les images */
-    margin-top: 20px; /* Marge en haut pour les images */
 }
+
+
+option:hover {
+    background-color: #d40505;
+}
+
+
+/* Styles | Menu de l'En-Tête */
+.header-menu {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+/* Styles | Liens du Menu de l'En-Tête et du Pied de Page */
+.header-menu li a,
+.footer-menu li a,
+#open-modal-button-header,
+.close {
+    text-decoration: none;
+    color: #000;
+    font-family: "Space Mono", monospace;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 23.7px;
+    letter-spacing: 0.1em;
+    text-align: left;
+}
+
+/* Styles | Listes du Menu de l'En-Tête et du Pied de Page */
+.header-menu ul,
+.footer-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Styles | Éléments de Liste du Menu de l'En-Tête et du Pied de Page */
+
+.header-menu li,
+.footer-menu li {
+    margin-right: 20px;
+}
+
+/* Styles | Styles de Boutons de l'En-Tête et du Pied de Page */
+#open-modal-button-header,
+#open-modal-button-footer {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Styles | Styles de Survole pour Boutons et Liens */
+#open-modal-button-header:hover,
+.header-menu li a:hover,
+.footer-menu a:hover {
+    font-family: Space Mono;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Styles | Styles de Survole pour Boutons de Fermeture */
+.close:hover,
+.close-button:hover {
+    text-decoration: underline;
+}
+
+/* Styles | PIED DE PAGE */
+.footer-menu {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+/* Styles | Éléments de Liste du Menu du Pied de Page */
+.footer-menu li {
+    margin: 0 15px;
+    display: inline;
+}
+
+/* Styles | Liens du Menu du Pied de Page */
+.footer-menu a {
+    text-decoration: none;
+    padding-top: 5px;
+}
+
+@media screen and (max-width: 900px) {
+.header-menu {
+    margin-right: 14px;
+}
+}
+
+
+/* Styles | MOBILE - PIED DE PAGE */
+@media screen and (max-width: 767px) {
+    .footer-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        padding-top: 10px;
+        flex-flow: column;
+    }
+
+    .footer-menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+
+
+
+/* Styles | Animation de Modale */
+@-webkit-keyframes animatetop {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+/* Styles | MODALE */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.822);
+    overflow: hidden;
+}
+
+/* Styles | CONTENU DE LA MODALE */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 5px solid #000;
+}
+
+/* Styles | Image dans la Modale - Bannière */
+.modal-content img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styles | Bouton de fermeture */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    z-index: 1;
+    font-family: 'Space Mono';
+}
+
+/* Styles mobile */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 85%;
+        max-height: 80vh;
+        border: 3px solid #000;
+        margin: 10px auto;
+        
+    }
+
+    /* Ajustements du formulaire pour mobile */
+    .wpcf7 input[type="text"],
+    .wpcf7 input[type="email"],
+    .wpcf7 textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    /* Ajustement du bouton pour mobile */
+    input[type=submit] {
+        width: 100%;
+        max-width: 263px;
+        margin: 10px auto;
+    }
+
+    /* Ajustement de la position de la modal pour mobile */
+    .modal-content {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Style du bouton de fermeture pour mobile */
+    .close {
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+    }
+
+    .mobile-menu-opened .header-menu a[href="#contact"] {
+        color: #FFFFFF;
+        font-family: 'Space Mono';
+        font-size: 44px;
+        line-height: 65px;
+        text-transform: uppercase;
+        display: block;
+        margin: 10px 0;
+        
+    }
+
+    .hero-title {
+
+
+    
+        padding-top: 150px;
+        font-size: 40px;
+    }
+
+
+}
+
+/* Styles | Contact Form 7 */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Styles | Styles des Entrées du Contact Form 7 */
+input[type=email],
+input[type=text],
+select,
+textarea {
+    border: none;
+    border-radius: 7px;
+}
+
+/* Styles | Styles du Bouton Soumettre du Contact Form 7 */
+input[type=submit] {
+    display: block;
+    width: 263px;
+    height: 50px;
+    padding: 8px 15px;
+    border-radius: 2px;
+    margin: 0 auto;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    font-family: Space Mono;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17.77px;
+    letter-spacing: 0em;
+    text-align: center;
+    border: none;
+    background-color: #D8D8D8;
+    color: #000000;
+}
+
+/* Styles | Styles de Survole du Bouton Soumettre du Contact Form 7 */
+input[type=submit]:hover {
+    background-color: #cccaca;
+}
+
+/* Styles | Messages d'Erreur du Contact Form 7 */
+.wpcf7-not-valid-tip {
+    color: #B8BBC2;
+}
+
+/* Styles | Styles de Sortie de Réponse du Contact Form 7 */
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output,
+.wpcf7 form .wpcf7-response-output {
+    color: #65676d;
+    font-family: Poppins;
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+}
+
+/* Styles | Étiquettes pour le Contact Form 7 */
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 textarea {
+    width: 263px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #B8BBC2;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    padding: 5px 10px;
+}
+
+/* Styles | Styles d'Étiquettes pour le Contact Form 7 */
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 textarea,
+.wpcf7 label {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+/* Styles | Style d'Étiquette de Message pour le Contact Form 7 */
+.wpcf7 textarea[name="your-message"] {
+    height: 190px;
+}
+
+/* Styles | MOBILE - BOUTON BURGER */
+.mobile-menu-button {
+    display: none;
+    cursor: pointer;
+    padding: 17px;
+}
+
+
+
+
+
+
+/* Styles | MOBILE - MENU */
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .header-menu {
+        display: none;
+    }
+
+    .mobile-menu-opened .header-menu {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        background-color: #fff;
+        position: fixed;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px;
+        box-shadow: 0px 4px 14px 10px #00000008;
+        z-index: 1000;
+        overflow-y: auto;
+        top: 71px !important;
+    }
+
+    .close-button {
+        position: absolute;
+        font-family: "Space Mono", monospace;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #000;
+    }
+
+    .close-button-container {
+        width: 100%;
+        height: 86px;
+        background: white;
+        position: absolute;
+        top: 0;
+    }
+    
+    .header-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        flex-flow: column;
+    }
+
+     
+    .mobile-menu-opened .header-menu {
+        background: #E00000;
+        height: 110vh;
+        left: 0;
+        top: 0;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        overflow-y: auto;
+    }
+    .header-menu li a,
+    #open-modal-button-header {
+        font-family: 'Space Mono';
+        font-weight: 400;
+        font-size: 44px;
+        line-height: 65px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+        transition: font-weight 0.3s ease;
+    }
+
+    .header-menu li {
+    margin-right: -3px;
+    }
+
+    .header-menu li a:hover,
+    #open-modal-button-header:hover {
+        font-size: 44px;
+        font-weight: 600;
+    }
+
+    .close-button {
+        color: #000000;
+        font-size: 23px;
+        position: absolute;
+        top: 22px;
+        right: 30px;
+    }
+
+    body.mobile-menu-opened {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .header-menu li {
+        margin-bottom: 20px;
+    }
+
+    .logo-container {
+        display: block;
+    }
+
+    .close-button {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo-container {
+        display: none;
+    }
+
+    .close-button {
+        display: none;
+    }
+}
+
+
+/* MODÈLE - ARTICLE */
+
+main {
+    padding: 20px;
+    font-family: 'Space Mono';
+}
+
+.main-content-post {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Assurez-vous que le lien de contact est au-dessus des autres éléments */
+#contact-link {
+    position: relative; /* ou absolute, selon votre design */
+    z-index: 10; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+
+
+
+
+
+/* Style du conteneur des filtres */
+.filters-and-sort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 0;
+    padding: 0 140px;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
+/* Style des selects personnalisés */
+select {
+    display: none; /* Cache les selects natifs */
+}
+
+.custom-select-container {
+    position: relative;
+    display: inline-block;
+    width: 260px;
+    margin: 0;
+    flex: 0 0 auto;
+    transition: all 0.3s ease-in-out;
+    box-sizing: border-box !important;
+}
+
+.select-selected {
+    width: 100%;
+    background-color: white;
+    padding: 8px 15px;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-family: 'Space Mono';
+    font-size: 16px;
+    border-radius: 6px;
+    text-align: left;
+    box-sizing: border-box !important;
+    background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.2 11.1 2.5 5.7A1 1 0 0 1 3.2 4h9.6a1 1 0 0 1 .7 1.7L8.8 11a1 1 0 0 1-1.6 0z'/></svg>") no-repeat calc(100% - 10px) 50%;
+}
+
+.select-items {
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box !important;
+    z-index: 99;
+    border: 1px solid #000;
+    border-top: none;
+    max-height: 218px;
+    overflow-y: auto;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div {
+    width: 100%;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-family: 'Space Mono';
+    font-size: 16px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    box-sizing: border-box !important;
+}
+
+.select-items div:last-child {
+    border-bottom: none;
+}
+
+/* Style au survol des options */
+.select-items div:hover {
+    background-color: #E00000;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+/* Style actif */
+.select-arrow-active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Style de la barre de défilement personnalisée */
+.select-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.select-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.select-items::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.select-items::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Styles tablette */
+@media screen and (max-width: 1110px) {
+    .filters-and-sort {
+        padding: 0 40px;
+        gap: 15px;
+        justify-content: center;
+    }
+}
+
+/* Styles mobile */
+@media (max-width: 930px) {
+    .filters-and-sort {
+        flex-direction: column;
+        padding: 0 20px;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .custom-select-container {
+        width: 260px;
+        margin: 0;
+    }
+}
+
+/* Style spécifique pour le filtre "Trier par" en desktop */
+@media screen and (min-width: 1025px) {
+    .custom-select-container:has(#date-sort) {
+        margin-left: auto; /* Pousse le filtre à droite uniquement en desktop */
+    }
+}
+
+/* Style pour l'overlay et l'icône fullscreen */
+.thumbnail-wrapper {
+    position: relative;
+}
+
+.thumbnail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnail-overlay .fullscreen-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 24px;
+    height: auto;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Styles responsive pour l'icône */
+@media screen and (max-width: 768px) {
+    .thumbnail-overlay .fullscreen-icon {
+        top: 10px;
+        right: 10px;
+        width: 20px; /* Légèrement plus petit sur mobile */
+    }
+}
+
+/* Style du logo */
+.logo-container {
+    position: absolute;
+    left: 140px;
+    top: 20px;
+    z-index: 1000;
+}
+
+.logo-container img {
+    width: 216px;
+    height: auto;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .header-menu {
+        display: none;
+    }
+
+    .logo-container {
+        left: 20px;
+    }
+}
+
+/* Style du menu burger */
+.mobile-menu-button {
+    display: none; /* Caché par défaut */
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    z-index: 999;
+}
+
+.mobile-menu-button .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #000;
+    transition: 0.3s;
+}
+
+/* Media queries pour mobile */
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: block; /* Affiche le menu burger */
+    }
+
+    .header-menu {
+        display: none;
+    }
+
+    .logo-container {
+        left: 20px;
+    }
+
+    /* Animation des barres au clic (si nécessaire) */
+    .mobile-menu-button.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .mobile-menu-button.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-button.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Style pour le menu fullscreen */
+.header-menu.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 80px; /* Hauteur du header */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px); /* Hauteur totale moins header */
+    background-color: white;
+    z-index: 998;
+}
+
+/* Ajustement du header pour qu'il reste visible */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 1px 20px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Media queries pour mobile */
+@media (max-width: 768px) {
+    .header-menu {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: white;
+        z-index: 999;
+    }
+
+    .header-menu.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-menu li {
+        margin: 15px 0;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* Styles de base du header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 1px 20px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Style du logo */
+.logo-container {
+    position: fixed;
+    left: 140px;
+    top: 20px;
+    z-index: 1001;
+}
+
+.logo-container img {
+    width: 216px;
+    height: auto;
+}
+
+/* Style du menu burger */
+.mobile-menu-button {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    z-index: 1001;
+}
+
+.mobile-menu-button .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #000;
+    transition: 0.3s;
+}
+
+/* Menu principal */
+.header-menu {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-right: 140px;
+}
+
+/* Styles pour mobile */
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .logo-container {
+        left: 20px;
+    }
+
+    /* Menu fullscreen */
+    .header-menu {
+        display: none;
+        position: fixed;
+        top: 80px; /* Commence après le header */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px); /* Hauteur totale moins header */
+        background-color: white;
+        z-index: 999;
+        margin: 0;
+    }
+
+    /* Menu actif */
+    .header-menu.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .header-menu ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .header-menu li {
+        margin: 15px 0;
+    }
+
+    /* Animation du menu burger */
+    .mobile-menu-button.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .mobile-menu-button.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-button.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Style du menu header */
+.header-menu {
+    margin-right: 140px;
+}
+
+/* Media query pour décaler les liens vers la droite */
+@media screen and (max-width: 880px) {
+    .header-menu {
+        margin-right: 40px; /* Réduit la marge à droite */
+    }
+
+    .header-menu ul {
+        margin-left: auto; /* Pousse les liens vers la droite */
+        padding-right: 20px; /* Ajoute un peu d'espace à droite */
+    }
+
+    nav img {
+        margin-left: 40px; /* Ajuste aussi la marge du logo pour maintenir l'équilibre */
+    }
+}
+

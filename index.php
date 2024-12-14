@@ -1,37 +1,19 @@
 <?php
-/**
- * The site's entry point.
- *
- * Loads the relevant template part,
- * the loop is executed (when needed) by the relevant template part.
- *
- * @package HelloElementor
- */
+get_header(); // Inclut l'en-tête du site
+?>
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+<?php if (have_posts()) : ?> <!-- Vérifie s'il y a des publications disponibles -->
+    <?php while (have_posts()) : the_post(); ?> <!-- Boucle à travers les publications -->
+        <article> <!-- Début de l'article -->
+            <h2><?php the_title(); ?></h2> <!-- Affiche le titre de la publication -->
+            <?php if (is_singular()) : ?> <!-- Vérifie si la publication est singulière -->
+                <?php the_content(); ?> <!-- Affiche le contenu de la publication -->
+            <?php endif; ?> <!-- Fin de la vérification pour le contenu singulier -->
+        </article> <!-- Fin de l'article -->
+    <?php endwhile; ?> <!-- Fin de la boucle -->
+<?php endif; ?> <!-- Fin de la vérification des publications -->
 
-get_header();
+<?php get_footer(); // Inclut le pied de page du site ?>
 
-$is_elementor_theme_exist = function_exists( 'elementor_theme_do_location' );
-
-if ( is_singular() ) {
-	if ( ! $is_elementor_theme_exist || ! elementor_theme_do_location( 'single' ) ) {
-		get_template_part( 'template-parts/single' );
-	}
-} elseif ( is_archive() || is_home() ) {
-	if ( ! $is_elementor_theme_exist || ! elementor_theme_do_location( 'archive' ) ) {
-		get_template_part( 'template-parts/archive' );
-	}
-} elseif ( is_search() ) {
-	if ( ! $is_elementor_theme_exist || ! elementor_theme_do_location( 'archive' ) ) {
-		get_template_part( 'template-parts/search' );
-	}
-} else {
-	if ( ! $is_elementor_theme_exist || ! elementor_theme_do_location( 'single' ) ) {
-		get_template_part( 'template-parts/404' );
-	}
-}
-
-get_footer();
+</body>
+</html>

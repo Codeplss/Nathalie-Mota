@@ -1,0 +1,33 @@
+/*
+Theme Name: Photographe
+Theme URI: 
+Author: Tyberghien Andrew
+Author URI: 
+Description: Thème pour le site de Nathalie Mota
+Version: 1.0
+Tags: nathalie mota, photographie
+Text Domain: photographe
+*/
+
+.hero {
+    position: relative;
+    height: 782px;
+}
+
+/* Style | Hero Image */
+.hero-image {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    position: relative;
+    background-image: url('/img/fallback-hero.png'); /* Image de secours */
+}
+
+
+
+/* Styles | Mobile - Hero Image */
+@media screen and (max-width: 768px) {
+    .hero {
+        height: 400px; /* Hauteur - Mobiles */
+    }
+}

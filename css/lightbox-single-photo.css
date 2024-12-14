@@ -1,0 +1,270 @@
+/*
+Theme Name: Photographe
+Theme URI: 
+Author: Tyberghien Andrew
+Author URI: 
+Description: Thème pour le site de Nathalie Mota
+Version: 1.0
+Tags: nathalie mota, photographie
+Text Domain: photographe
+*/
+
+/* Styles pour la lightbox d'une photo unique */
+
+/* Styles de la modale de la lightbox */
+.lightbox {
+    display: none; /* Masque la lightbox par défaut */
+    position: fixed; /* Positionnement fixe pour la lightbox */
+    z-index: 1000; /* Z-index élevé pour s'assurer qu'elle est au-dessus des autres éléments */
+    left: 0; /* Positionne à gauche */
+    top: 0; /* Positionne en haut */
+    width: 100%; /* Prend toute la largeur */
+    height: 100%; /* Prend toute la hauteur */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    overflow: auto; /* Permet le défilement si nécessaire */
+}
+
+/* Styles pour le contenu de la lightbox */
+.lightbox-content {
+    position: relative; /* Positionnement relatif pour le contenu de la lightbox */
+    margin: auto; /* Centre le contenu */
+    padding: 20px; /* Ajoute du padding autour du contenu */
+    width: 80%; /* Largeur de la lightbox */
+    max-width: 700px; /* Largeur maximale */
+    background-color: #fff; /* Fond blanc pour le contenu */
+    border-radius: 8px; /* Arrondit les coins */
+}
+
+/* Styles pour l'image dans la lightbox */
+.lightbox img {
+    width: 100%; /* L'image prend toute la largeur de la lightbox */
+    height: auto; /* Hauteur automatique pour maintenir le ratio */
+    border-radius: 8px; /* Arrondit les coins de l'image */
+}
+
+/* Styles pour le bouton de fermeture de la lightbox */
+.lightbox .close {
+    position: absolute; /* Positionnement absolu pour le bouton de fermeture */
+    top: 10px; /* Positionne en haut */
+    right: 10px; /* Positionne à droite */
+    font-size: 24px; /* Taille de la police */
+    color: #fff; /* Couleur du texte */
+    cursor: pointer; /* Curseur en forme de pointeur */
+}
+
+/* Styles pour le bouton de fermeture au survol */
+.lightbox .close:hover {
+    color: #f00; /* Change la couleur au survol */
+}
+
+/* Styles pour les flèches de navigation dans la lightbox */
+.lightbox .arrow {
+    position: absolute; /* Positionnement absolu pour les flèches */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%); /* Ajuste la position pour centrer */
+    font-size: 30px; /* Taille de la police pour les flèches */
+    color: #fff; /* Couleur des flèches */
+    cursor: pointer; /* Curseur en forme de pointeur */
+}
+
+/* Flèche gauche */
+.lightbox .arrow.left {
+    left: 10px; /* Positionne à gauche */
+}
+
+/* Flèche droite */
+.lightbox .arrow.right {
+    right: 10px; /* Positionne à droite */
+}
+
+/* Styles pour les images de la galerie */
+.lightbox .gallery img {
+    width: 100%; /* L'image prend toute la largeur de la galerie */
+    height: auto; /* Hauteur automatique pour maintenir le ratio */
+    margin: 5px; /* Marge autour des images */
+    cursor: pointer; /* Curseur en forme de pointeur */
+}
+
+/* Styles pour les images de la galerie au survol */
+.lightbox .gallery img:hover {
+    opacity: 0.8; /* Change l'opacité au survol */
+}
+
+.btn-close {
+  position: fixed;
+  top: 20px;
+  right: 320px;
+  color: #fff;
+  font-family: 'Montserrat', monospace;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 15px;
+  max-width: 40px;
+  max-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.btn-close:hover {
+  font-weight: 600;
+}
+
+.right-container img {
+  cursor: pointer;
+}
+
+.photo {
+  transition: filter 0.3s; /* Ajouter une transition douce pour le filtre */
+}
+
+.photo:hover {
+  filter: brightness(0.7); /* Assombrit l'image en réduisant la luminosité à 70% */
+}
+
+
+
+.modal-container {
+  display: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container.opened {
+  opacity: 1;
+  display: flex !important;
+}
+
+.modal-container img {
+  max-height: 80vh;
+}
+
+.left-arrow,
+.right-arrow {
+  width: auto;
+  display: flex; /* Flèches - centrage vertical */
+  align-items: center;
+}
+
+.left-arrow .arrow-link,
+.right-arrow .arrow-link {
+  display: flex; /* Contenu horizontalement */
+  align-items: center; /* Centrer verticalement */
+  text-decoration: none;
+  color: white;
+  outline: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 20px;
+}
+
+.left-arrow > a > span:hover,
+.right-arrow > a > span:hover {
+  font-weight: 700;
+}
+
+
+.left-arrow .arrow-img-gauche {
+  filter: invert(100%); /* Inverser couleurs de l'image*/
+  margin-right: 10px;
+}
+
+.left-arrow .text {
+  order: 1; /* Placer le texte à droite de la flèche */
+}
+
+.right-arrow .arrow-img-droite {
+  filter: invert(100%); /* Inverser couleurs de l'image*/
+  margin-left: 10px;
+  order: 2; /* Placer la flèche à la fin, du côté droit */
+}
+
+
+.info-photo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info-photo > span {
+  padding: 20px;
+  color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase !important;
+}
+
+
+/* Appliquer des styles spécifiques aux appareils mobiles dans une requête media */
+@media (max-width: 768px) {
+    .btn-close {
+      font-size: 18px;
+      padding: 20px;
+      right: 20px;
+      top: 10px;
+    }
+  
+    .modal-container {
+      padding: 1px;
+      z-index: 1000; /* Ajuster selon les besoins */
+      background: rgba(0, 0, 0, 0.8); /* Légèrement plus transparent */
+    }
+  
+    .modal-container img {
+      max-height: 60vh; /* Ajuster selon les besoins */
+      width: auto; /* Maintenir le rapport d'aspect */
+    }  
+
+    .left-arrow > a > span,
+    .right-arrow > a > span {
+        display: none;
+    }
+
+    .left-arrow {
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      position: absolute;
+      top: 44%;
+      left: -12px; /* Positionner la flèche de gauche à gauche */
+      transform: translateY(-50%); /* Centrer verticalement la flèche */
+    }
+  
+    .right-arrow {
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      position: absolute;
+      top: 44%;
+      right: 28px; /* Positionner la flèche de droite à droite */
+      transform: translateY(-50%); /* Centrer verticalement la flèche */
+    }
+  
+    .info-photo {
+      display: flex;
+      flex-direction: column; /* Empiler les éléments verticalement sur mobile */
+      align-items: center; /* Centrer les éléments horizontalement */
+    }
+  
+    .info-photo > span {
+      padding: 10px;
+      font-size: 14px;
+    }
+}
