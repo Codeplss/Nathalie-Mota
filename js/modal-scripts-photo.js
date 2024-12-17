@@ -1,34 +1,26 @@
+jQuery(document).ready(function($) {
+    // Assurez-vous que la modal est cachée au départ
+    $('#myModal-photo').hide(); // Utilisez l'ID correct pour la modal
 
-if( jQuery('#myBtn-photo').length ){
-    // MODAL CONTACT - SINGLE-PHOTO
-    var photoModal = document.getElementById('myModal-photo');
-    var photoBtn = document.getElementById("myBtn-photo");
-    var photoSpan = document.getElementsByClassName("close-photo")[0];
+    // Gestion du clic sur le bouton myBtn-photo
+    $('#myBtn-photo').click(function() {
+        $('#myModal-photo').css('display', 'block'); // Affiche la modal
 
-    // Afficher le modal single-photo
-    photoBtn.onclick = function() {
-        photoModal.style.display = "block";
-    }
-
-    // Masquer le modal single-photo
-    photoSpan.onclick = function() {
-        photoModal.style.display = "none";
-    }
-
-    // Fermer le modal single-photo en cliquant en dehors
-    window.onclick = function(event) {
-        if (event.target == photoModal) {
-            photoModal.style.display = "none";
-        }
-    }
-
-    // MISE À JOUR DU CHAMP #REF-PHOTO DANS LE FORMULAIRE DE CONTACT 7
-    jQuery(document).ready(function($) {
-        console.log("acfReferencePhoto:", acfReferencePhoto);
-        $("#myBtn-photo").on('click', function() {
-            // Définissez la valeur de #ref-photo lorsque le bouton est cliqué.
-            $("#ref-photo").val(acfReferencePhoto);
-        });
+        // Remplir le champ de référence avec la valeur de la référence
+        var reference = $('#ph-reference').text(); // Récupère la référence de la photo
+        $('#ref-photo').val(reference); // Met à jour le champ caché avec la référence
     });
-    
-}
+
+    // Gestion du clic sur le bouton de fermeture de la modal
+    $('.close-photo').click(function() {
+        $('#myModal-photo').css('display', 'none'); // Masque la modal
+    });
+
+    // Gestion du clic en dehors de la modal pour la fermer
+    $(window).click(function(e) {
+        var modal = $('#myModal-photo');
+        if (e.target == modal[0]) {
+            modal.hide(); // Masque la modal
+        }
+    });
+});

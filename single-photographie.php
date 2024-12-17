@@ -8,20 +8,16 @@
 get_header();
 ?>
 <!-- Section | Lightbox Photo -->
-<div class='modal-container'>
-    <!-- Bouton fermer -->
+<div class='modal-container' id="myModal">
     <span class="btn-close">X</span> <!-- Bouton pour fermer la modale -->
-    <!-- Fleche -->
     <div class="left-arrow"></div> <!-- Flèche gauche pour navigation -->
     <div>
-        <!-- Image | Information de la Photo -->
-        <img src="" class="middle-image" /> <!-- Image principale de la photo -->
+        <img src="" class="middle-image" id="modal-image" /> <!-- Image principale de la photo -->
         <div class="info-photo">
             <span id="modal-reference"></span> <!-- Affiche la référence de la photo -->
             <span id="modal-category"></span> <!-- Affiche la catégorie de la photo -->
         </div>
     </div>
-    <!-- Fleche -->
     <div class="right-arrow"></div> <!-- Flèche droite pour navigation -->
 </div>
 
@@ -84,11 +80,10 @@ get_header();
                     echo '<p>Type : ' . esc_html($type_de_photo) . '</p>'; // Affiche le type de photo
                 }
 
-                // L'année de capture
-                // Récupère l'année de capture et l'affiche si elle existe.
-                $date_capture = get_the_date('Y');
-                if ($date_capture) {
-                    echo '<p>Année : ' . esc_html($date_capture) . '</p>'; // Affiche l'année de capture
+                // Récupère la valeur du champ personnalisé 'annee' et l'affiche s'il existe.
+                $annee_photo = get_field('annee'); // Assurez-vous que 'annee' est le nom exact de votre champ ACF
+                if ($annee_photo) {
+                    echo '<p>Année : ' . esc_html($annee_photo) . '</p>'; // Affiche l'année de capture
                 }
                 ?>
             </div>
@@ -105,28 +100,15 @@ get_header();
     </div>
     <!-- Section | Contact & Navigation Photos -->
     <div class="zone-contact">
-        <!-- Section | Contact - Bouton Modal avec reference -->
+        <!-- Section | Contact - Bouton Modal avec référence -->
         <div class="left-contact">
             <div class="texte-contact">
                 <p>Cette photo vous intéresse ?</p> <!-- Message incitant à contacter -->
             </div>
             <div class="bouton-contact">
-                <?php include get_template_directory() . '/template-parts/contact-modal-photo.php'; ?> <!-- Inclut le fichier de modal de contact -->
-
-                <?php
-                // Récupère la valeur du champ personnalisé 'reference' et la définit comme une variable JavaScript.
-                $reference_photo = get_field('reference');
-                if ($reference_photo) {
-                    echo '<script type="text/javascript">'; // Ouvre une balise script
-                    echo 'var acfReferencePhoto = "' . esc_js($reference_photo) . '";'; // Définit la variable JavaScript avec la référence
-                    echo '</script>'; // Ferme la balise script
-                } else {
-                    echo '<script type="text/javascript">'; // Ouvre une balise script
-                    echo 'var acfReferencePhoto = "";'; // Définit la variable JavaScript vide si aucune référence
-                    echo '</script>'; // Ferme la balise script
-                    echo '<!-- Aucune valeur trouvée pour le champ "reference" -->'; // Commentaire pour indiquer l'absence de valeur
-                }
-                ?>
+                <!-- Inclut le fichier de modal de contact -->
+                <?php include get_template_directory() . '/template-parts/contact-modal-photo.php'; ?>
+                <!-- Bouton pour ouvrir la modal -->
             </div>
         </div>
         <!-- Section | Contact - Navigation de photos - Fleches & Miniature -->
@@ -245,6 +227,5 @@ get_header();
         </div>
     </div>
 </main>
-<script src="<?php echo get_template_directory_uri(); ?>/js/modal-scripts-photo.js"></script> <!-- Inclut le script pour la modal photo -->
 
 <?php get_footer(); // Inclut le pied de page ?>

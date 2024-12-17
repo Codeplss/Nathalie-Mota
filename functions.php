@@ -20,6 +20,14 @@ function enqueue_custom_scripts() {
     wp_enqueue_script('modal-scripts-photo', get_template_directory_uri() . '/js/modal-scripts-photo.js', array('jquery'), '1.0', true); // Charge les scripts de modal pour la photo
     wp_enqueue_script('lightbox-single-photo', get_template_directory_uri() . '/js/lightbox-single-photo.js', array('jquery'), '1.0', true); // Charge les scripts de lightbox pour la photo unique
     wp_enqueue_script('custom-select', get_template_directory_uri() . '/js/custom-select.js', array('jquery'), '1.0', true); // Charge les scripts pour le sélecteur personnalisé
+
+    // Récupérer la référence de la photo et la passer au script
+    if (is_singular('photographie')) { // Vérifie si nous sommes sur une page de photo unique
+        $reference_photo = get_field('reference'); // Récupère la valeur du champ personnalisé
+        wp_localize_script('modal-scripts-photo', 'photoData', array(
+            'reference' => $reference_photo ? esc_js($reference_photo) : '', // Passe la référence ou une chaîne vide
+        ));
+    }
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts'); // Ajoute la fonction d'enqueue des scripts à l'action wp_enqueue_scripts
 
@@ -36,9 +44,17 @@ add_action('init', 'register_custom_menus'); // Ajoute la fonction d'enregistrem
 function enqueue_infinite_pagination_js() {
     wp_enqueue_script('infinite-pagination', get_template_directory_uri() . '/js/infinite-pagination.js', array('jquery'), ''); // Charge le script de pagination infinie
     wp_localize_script('infinite-pagination', 'wp_data', array('ajax_url' => admin_url('admin-ajax.php'))); // Localise le script pour utiliser l'URL AJAX
+
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_infinite_pagination_js'); // Ajoute la fonction d'enqueue de pagination infinie à l'action wp_enqueue_scripts
+
+
+
+add_filter('show_admin_bar', '__return_false');
+
+
+
 
 // Créer une fonction pour charger des articles - Photo
 function load_more_posts() {
@@ -46,7 +62,7 @@ function load_more_posts() {
 
     $args_custom_posts = array(
         'post_type' => 'photographie', // Type de publication personnalisée à charger
-        'posts_per_page' => 5, // Nombre de publications à afficher par page
+        'posts_per_page' => 12, // Nombre de publications à afficher par page
         'paged' => $page, // Spécifie la page actuelle à charger
     );
 
