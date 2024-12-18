@@ -180,6 +180,15 @@ option:hover {
     padding-top: 5px;
 }
 
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 900px) {
 .header-menu {
     margin-right: 14px;
@@ -355,6 +364,16 @@ form {
     align-items: center;
     max-width: 400px;
     margin: 0 auto;
+}
+
+
+/* Mobile en premier */
+@media screen and (max-width: 400px) {
+    body form,
+    html body form {
+        max-width: 185px !important;
+        width: 100% !important;
+    }
 }
 
 /* Styles | Styles des Entrées du Contact Form 7 */

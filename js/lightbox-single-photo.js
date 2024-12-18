@@ -1,11 +1,13 @@
 // LIGHTBOX - NAVIGATION PHOTOS 
     // Ajouter une division modale lorsque l'on clique sur une image dans .right-container
-    $('.right-container img').click(function(){
+    $('.right-container').click(function(){
+        // Trouve l'image à l'intérieur du conteneur
+        const image = $(this).find('img');
+        // Obtient l'URL de l'image
+        const imageSrc = image.attr('src');
+        
         // Ajoute la classe 'opened' à la boîte modale
         $('.modal-container').addClass('opened');
-        
-        // Obtient l'URL de l'image cliquée
-        const imageSrc = $(this).attr('src');
         
         // Clone les flèches précédentes et suivantes
         const prevArrow = $('#prev-arrow-link').clone();

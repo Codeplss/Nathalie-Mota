@@ -66,6 +66,18 @@ get_header(); // Inclut l'en-tête du site
     <?php include get_template_directory() . '/template-parts/photo_block.php'; ?> <!-- Inclut le fichier de bloc photo -->
 </div>
 
+   <!-- Modal pour la lightbox -->
+   <div class="modal-container" id="fullscreenModal">
+       <span class="btn-close">X</span> <!-- Bouton pour fermer la modale -->
+       
+       <div>
+           <img src="" class="middle-image" id="modal-image-fullscreen" /> <!-- Image principale de la photo -->
+       </div>
+       
+   </div>
+
+
+
 <?php
 get_footer(); // Inclut le pied de page du site
 ?>

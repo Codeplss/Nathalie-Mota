@@ -146,3 +146,5 @@ jQuery(document).ready(function($) {
         $('#myModal').css('display', 'none'); // Masque la modal
     });
 });
+
+

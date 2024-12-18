@@ -18,6 +18,7 @@ get_header();
             the_post(); 
     ?>
         <div>
+        <h2><?php the_title(); ?></h2>
             <?php the_content(); // Affiche le contenu de l'article. ?>
         </div>
     <?php

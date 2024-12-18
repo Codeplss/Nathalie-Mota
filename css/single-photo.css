@@ -196,7 +196,13 @@ Text Domain: photographe
     position: relative;
     max-width: 50%;
     height: auto;
+    
+
 }
+
+
+
+
 
 /* Styles | Partie droite en version mobile */
 .right-container.mobile-first {
@@ -211,7 +217,7 @@ Text Domain: photographe
 }
 
 /* Styles | Version mobile */
-@media (max-width: 768px) {
+@media (max-width: 970px) {
     .zone-contenu,
     .zone-contact,
     .left-container,
@@ -479,23 +485,71 @@ Text Domain: photographe
 /* Style pour l'icône fullscreen dans la photo principale */
 .right-container {
     position: relative;
+    
 }
 
-.right-container .fullscreen-icon {
-    position: absolute !important;
-    top: 10px !important;
-    right: 5px;
-    width: 24px;
-    height: auto;
-    cursor: pointer;
-    z-index: 10;
+/* Style de base pour l'icône fullscreen */
+.right-container .fullscreen-icon-container,
+body .fullscreen-icon-container {
+    content: '';
+    position: absolute;
+    background-image: url('../img/Icon_fullscreen.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 2;
+    cursor: pointer;
 }
 
-/* Affiche l'icône au survol du conteneur */
-.right-container:hover .fullscreen-icon {
+/* Hover effect */
+.right-container:hover .fullscreen-icon-container {
     opacity: 1;
+}
+
+/* Mobile (très petits écrans - 320px à 480px) */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    body .right-container .fullscreen-icon-container,
+    html body .fullscreen-icon-container {
+        top: 33% !important;
+        right: 3% !important;
+        width: min(20px, 10%) !important;
+        height: min(20px, 10%) !important;
+    }
+}
+
+/* Tablettes et petits écrans */
+@media screen and (min-width: 481px) and (max-width: 600px) {
+    body .right-container .fullscreen-icon-container,
+    html body .fullscreen-icon-container {
+        top: 15% !important;
+        right: 3% !important;
+        width: min(22px, 9%) !important;
+        height: min(22px, 9%) !important;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    body .right-container .fullscreen-icon-container,
+    html body .fullscreen-icon-container {
+        top: 21% !important;
+        right: 4% !important;
+        width: min(24px, 8%) !important;
+        height: min(24px, 8%) !important;
+    }
+}
+
+/* Grands écrans (à partir de 1024px) */
+@media screen and (min-width: 1024px) {
+    body .right-container .fullscreen-icon-container,
+    html body .fullscreen-icon-container {
+        top: 8% !important;
+        right: 3% !important;
+        width: min(26px, 7%) !important;
+        height: min(26px, 7%) !important;
+    }
 }
 
 /* Style pour l'icône fullscreen dans les photos apparentées */
@@ -519,4 +573,10 @@ Text Domain: photographe
     }
 }
   
+@media (max-width: 340px) {
+    .left-container h1 {
+        font-size: 30px;
+    }
+}
+
   

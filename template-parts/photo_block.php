@@ -7,7 +7,7 @@
             'post_type' => 'photographie',          // Type de publication personnalisée (photo) 
             'posts_per_page' => 12,                 // Nombre de publications à afficher par page
             'orderby' => 'date',                     // Tri des publications par date
-            'order' => 'DESC',                       // Ordre de tri descendant - (de la plus récente à la plus ancienne).
+            'order' => 'DESC',   
         );        
 
         // Exécute la requête pour récupérer les publications personnalisées
